@@ -39,4 +39,13 @@ b5.grid(row=6,column=3,padx=5,pady=5,sticky='nswe')
 b6=Button(root,text='Close',command=root.destroy)
 b6.grid(row=7,column=3,padx=5,pady=5,sticky='nswe')
 
+listing=Listbox(root)
+listing.grid(row=2,column=0,rowspan=6,columnspan=3,padx=5,pady=5,sticky='nswe')
+listing.bind('<<ListboxSelect>>',get_selected_row)
+
+for i in range(4):
+  root.grid_columnconfigure(i,weight=1)
+for i in range(8):
+  root.grid_rowconfigure(i,weight=1)
+
 root.mainloop()
