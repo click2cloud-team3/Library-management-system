@@ -16,6 +16,11 @@ def add_entry():
   listing.insert(END,(title_txt.get(),author_txt.get(),year_txt.get(),isbn_txt.get()))
   clear()
 
+def view_all():
+  listing.delete(0,END)
+  for row in backend.view():
+    listing.insert(END,row)
+  clear()
 
 title_txt=StringVar()
 author_txt=StringVar()
