@@ -37,6 +37,10 @@ def get_selected_row(event):
   e3.insert(END,selected_tuple[2])
   e4.insert(END,selected_tuple[4])
 
+def delete():
+  global selected_tuple
+  backend.delete(selected_tuple[0])
+  view_all()
 
 title_txt=StringVar()
 author_txt=StringVar()
