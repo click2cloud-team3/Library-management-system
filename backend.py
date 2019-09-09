@@ -6,4 +6,11 @@ def connection():
   conn.commit()
   conn.close()
 
+def insert(title,author,year,isbn):
+  conn=sqlite3.connect('book.db')
+  conn.execute("INSERT INTO library VALUES (NULL,?,?,?,?)",(title,author,year,isbn))
+  conn.commit()
+  conn.close()
+
 connection()
+
