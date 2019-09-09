@@ -22,6 +22,11 @@ def view_all():
     listing.insert(END,row)
   clear()
 
+def update():
+  global selected_tuple
+  backend.update(selected_tuple[0],title_txt.get(),author_txt.get(),year_txt.get(),isbn_txt.get())
+  view_all()
+
 title_txt=StringVar()
 author_txt=StringVar()
 year_txt=StringVar()
