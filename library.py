@@ -4,6 +4,19 @@ import backend
 root=Tk()
 root.title('Library system')
 
+def clear():
+  e1.delete(0,END)
+  e2.delete(0,END)
+  e3.delete(0,END)
+  e4.delete(0,END)
+
+def add_entry():
+  backend.insert(title_txt.get(),author_txt.get(),year_txt.get(),isbn_txt.get())
+  listing.delete(0,END)
+  listing.insert(END,(title_txt.get(),author_txt.get(),year_txt.get(),isbn_txt.get()))
+  clear()
+
+
 title_txt=StringVar()
 author_txt=StringVar()
 year_txt=StringVar()
@@ -46,6 +59,6 @@ listing.bind('<<ListboxSelect>>',get_selected_row)
 for i in range(4):
   root.grid_columnconfigure(i,weight=1)
 for i in range(8):
-  root.grid_rowconfigure(i,weight=1)
+  root.grid_rowconfigure(i,weight=1) 
 
 root.mainloop()
