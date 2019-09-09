@@ -27,6 +27,17 @@ def update():
   backend.update(selected_tuple[0],title_txt.get(),author_txt.get(),year_txt.get(),isbn_txt.get())
   view_all()
 
+def get_selected_row(event):
+  global selected_tuple
+  clear()
+  index=listing.curselection()[0]
+  selected_tuple=listing.get(index)
+  e1.insert(END,selected_tuple[1])
+  e2.insert(END,selected_tuple[3])
+  e3.insert(END,selected_tuple[2])
+  e4.insert(END,selected_tuple[4])
+
+
 title_txt=StringVar()
 author_txt=StringVar()
 year_txt=StringVar()
