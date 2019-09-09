@@ -2,7 +2,11 @@ from tkinter import *
 import tkinter.messagebox
 import backend
 root=Tk()
-root.title('Library system')
+root.title('system')
+
+def callback():
+  if tkinter.messagebox.askokcancel("quit","Do You really want to quit?"):
+    root.destroy()
 
 def clear():
   e1.delete(0,END)
@@ -52,6 +56,7 @@ def search():
     tkinter.messagebox.showinfo('Message','NO RESULT FOUND')
   clear()
 
+selected_tuple=tuple()
 title_txt=StringVar()
 author_txt=StringVar()
 year_txt=StringVar()
@@ -94,6 +99,8 @@ listing.bind('<<ListboxSelect>>',get_selected_row)
 for i in range(4):
   root.grid_columnconfigure(i,weight=1)
 for i in range(8):
-  root.grid_rowconfigure(i,weight=1) 
+  root.grid_rowconfigure(i,weight=1)
 
+root.protocol("WM_DELETE_WINDOW",callback)
 root.mainloop()
+
