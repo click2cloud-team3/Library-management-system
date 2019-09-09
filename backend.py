@@ -26,5 +26,11 @@ def update(id,title,author,year,isbn):
   conn.commit()
   conn.close()
 
+def delete(id):
+  conn=sqlite3.connect('book.db')
+  conn.execute("DELETE from library WHERE id=?",(id,))
+  conn.commit()
+  conn.close()
+
 connection()
 
