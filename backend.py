@@ -32,5 +32,12 @@ def delete(id):
   conn.commit()
   conn.close()
 
-connection()
+def search(title='',author='',year='',isbn=''):
+  conn=sqlite3.connect('book.db')
+  cur_obj=conn.cursor()
+  cur_obj.execute("SELECT * from library WHERE title=? OR author=? OR year=? OR isbn=?",(title,author,year,isbn))
+  rows=cur_obj.fetchall()
+  conn.close()
+  return rows
 
+connection()
