@@ -42,6 +42,16 @@ def delete():
   backend.delete(selected_tuple[0])
   view_all()
 
+def search():
+  listing.delete(0,END)
+  search_data=backend.search(title_txt.get(),author_txt.get(),year_txt.get(),isbn_txt.get())
+  if len(search_data)!=0:
+    for row in search_data:
+      listing.insert(END,row)
+  else:
+    tkinter.messagebox.showinfo('Message','NO RESULT FOUND')
+  clear()
+
 title_txt=StringVar()
 author_txt=StringVar()
 year_txt=StringVar()
