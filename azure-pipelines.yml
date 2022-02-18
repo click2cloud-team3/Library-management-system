@@ -10,10 +10,10 @@ pool: mypool
 
 steps:
 - script: |
-    sudo apt-get install python-tk python3-tk tk-dev
-    sudo apt install python3-venv
+    sudo apt-get install python-tk python3-tk tk-dev -y
+    sudo apt install python3-venv -y 
   displayName: 'Install dependencies'
 
 - script: |
     python3 library.py
-  displayName: 'pytest'
+  displayName: 'Running Application'
