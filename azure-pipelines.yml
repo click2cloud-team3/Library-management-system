@@ -1,0 +1,19 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- master
+
+pool: mypool
+
+steps:
+- script: |
+    sudo apt-get install python-tk python3-tk tk-dev
+    sudo apt install python3-venv
+  displayName: 'Install dependencies'
+
+- script: |
+    python3 library.py
+  displayName: 'pytest'
